@@ -1,0 +1,131 @@
+{
+    "kyselyt": [
+        {
+            "id": "1",
+            "nimi": "kysely1",
+            "aktiivisuus": "aktiivinen",
+            "linkki": "https://kyselyrestapi.herokuapp.com/kyselyt/1",
+            "kysymykset": [
+                {
+                    "id": 1,
+                    "tyyppi": "radio",
+                    "kysymys": "Valitse yksi",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a vaihtoehto"},
+                        {"2": "b vaihtoehto"},
+                        {"3": "c vaihtoehto"}
+                    ]
+                },
+                {
+                    "id": 2,
+                    "tyyppi": "radio",
+                    "kysymys": "Valitse taas yksi",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a vaihtoehto"},
+                        {"2": "b vaihtoehto"},
+                        {"3": "c vaihtoehto"}
+                    ]
+                },
+                {
+                    "id": 3,
+                    "tyyppi": "radio",
+                    "kysymys": "Valitse vielä yksi",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a vaihtoehto"},
+                        {"2": "b vaihtoehto"},
+                        {"3": "c vaihtoehto"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "nimi": "kysely2",
+            "aktiivisuus": "aktiivinen",
+            "linkki": "https://kyselyrestapi.herokuapp.com/kyselyt/2",
+            "kysymykset": [
+                {
+                    "id": 1,
+                    "tyyppi": "teksti",
+                    "kysymys": "Valitse oikea vastaus, mikä alla olevista vaihtoehdoista on eläin?",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a Rapina"},
+                        {"2": "b Apina"},
+                        {"3": "c Kapina"},
+                        {"4": "d Vapina"}
+                    ]
+                },
+                {
+                    "id": 2,
+                    "tyyppi": "teksti",
+                    "kysymys": "Paras nuudeli?",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a Vehnä"},
+                        {"2": "b Riisi"},
+                        {"3": "c Muu"}
+                    ]
+                },
+                {
+                    "id": 3,
+                    "tyyppi": "teksti",
+                    "kysymys": "Valitse numero",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a 3425"},
+                        {"2": "b 563784"},
+                        {"3": "c 763432"},
+                        {"4": "c 762463432"},
+                        {"5": "c 76246123432"},
+                        {"6": "c 76313135315432"}
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "nimi": "kysely3",
+            "aktiivisuus": "aktiivinen",
+            "linkki": "https://kyselyrestapi.herokuapp.com/kyselyt/3",
+            "kysymykset": [
+                {
+                    "id": 1,
+                    "tyyppi": "radio",
+                    "kysymys": "Minkä on lempi eläimesi alle olevista vaihtoehdoista?",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a Konna"},
+                        {"2": "b Lisko"},
+                        {"3": "c Panda"}
+                    ]
+                },
+                {
+                    "id": 2,
+                    "tyyppi": "teksti",
+                    "kysymys": "Miksi valitsit kyseisen elukan?",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a Ulkonäkö"},
+                        {"2": "b Hauskempi kuin muut"},
+                        {"3": "c Maku"}
+                    ]
+                },
+                {
+                    "id": 3,
+                    "tyyppi": "radio",
+                    "kysymys": "Valitse vielä yksi",
+                    "vastaus": "",
+                    "vaihtoehdot": [
+                        {"1": "a vaihtoehto"},
+                        {"2": "b vaihtoehto"},
+                        {"3": "c vaihtoehto"}
+                    ]
+                }
+            ]
+        }
+    ]
+}
