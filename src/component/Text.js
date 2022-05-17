@@ -92,12 +92,12 @@ function Text(props) {
                         } else if (k.type == 2) {
                             return <div key={i}>
                                 <h2 className="form-titleh2 text-color">{k.kysymys}</h2>
-                                <TextField name={k.kysymys} value={sortatutkysymykset[i].vastaus.id} label="Vastauksesi" variant="outlined" onChange={handleChange(k, i)} />
+                                <input name={k.kysymys} value={sortatutkysymykset[i].vastaus.id} label="Vastauksesi" variant="outlined" onChange={handleChange(k, i)} ></input>
                             </div>
                         } else return <p>Jokin meni pieleen</p>
                     })
                 }
-                <Button onClick={submit}>Lähetä vastaukset ja tutki tuloksia</Button>
+                <button className="button-css" onClick={submit}>Lähetä vastaukset ja tutki tuloksia</button>
             </FormControl>
         </div>
     )} else {
@@ -108,7 +108,7 @@ function Text(props) {
                         sortatutkysymykset.map((k, i) => {
                             return <div key={i}>
                                 <h2 className="form-titleh2 text-color">{k.kysymys}</h2>
-                                <p>{k.vastaus.vastaus}</p>
+                                <p className="form-titleh3 text-color">{k.vastaus.vastaus}</p>
                             </div>
                         })
                     }
