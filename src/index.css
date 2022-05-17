@@ -22,6 +22,7 @@ body {
   font-size: 17px;
   border: 0;
   font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 .text-color {
@@ -31,10 +32,11 @@ body {
 
 .form-titleh1 {
   margin: 10px 0 10px 0;
-  padding: 10.5px;
+  padding: 0.5px;
   font-size: 18.5px;
   border: 0;
   font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 .form-checkbox-label {
@@ -151,6 +153,12 @@ input[type="checkbox"]:checked::before {
   font-family: "Roboto", sans-serif;
   
 
+}
+
+.form-text {
+  font-weight: bold;
+  color: #555B6E;
+  
 }
 
 input[type="Radio"]::before {

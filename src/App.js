@@ -1,83 +1,46 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./index.css"
-import kyselyData from "./component/data/radio-test.json"
-import Text from "./component/Text"
-
+import KaikkiKyselyt from "./component/KaikkiKyselyt"
 
 function App() {
 
-    const [kyselytData] = useState([kyselyData.kyselyt])
+    const [heatutKysymykset, setHeatutKysymykset] = useState([])
+    const [heatutKyselyt, setHeatutKyselyt] = useState([])
 
-    const [kysleyId, setKysleyId] = useState('')
+    useEffect(() => {
+        fetchLink('https://tiimiscrum-backend.herokuapp.com/questions').then(data => setHeatutKysymykset(data))
+        fetchLink('https://tiimiscrum-backend.herokuapp.com/questionare').then(data => setHeatutKyselyt(data))
+    }, [])
 
-    const [haluttuKysley, setHaluttuKysley] = useState('')
-
-    /*
-    Logitus jätetty esimerkiksi JSON sisällön käsittelyyn kehityksen ajaksi
-
-    console.log(`\n\n### kyselyiden määrä: ${kyselytData[0].length}`)
-    console.log("### kaikki kyselyt:")
-    console.log(kyselytData[0])
-
-    console.log("\n\n### 1. kysely:")
-    console.log(kyselytData[0].[0].linkki)
-    console.log(kyselytData[0].[0])
-
-    console.log(`\n\n### kyselyn kysymysten määrä: ${kyselytData[0].[0].kysymykset.length}`)
-    console.log("### kyselyn kaikki kysymykset:")
-    console.log(kyselytData[0].[0].kysymykset)
-
-    console.log("\n\n### 1. kysymys:")
-    console.log(kyselytData[0].[0].kysymykset[0].kysymys)
-
-    console.log(`\n\n### vaihtoehtojen määrä: ${kyselytData[0].[0].kysymykset[0].vaihtoehdot.length}`)
-    console.log("### kaikki vaihtoehdot")
-    console.log(kyselytData[0].[0].kysymykset[0].vaihtoehdot)
-    console.log(kyselytData[0].[0].kysymykset[0].vaihtoehdot[0])
-    console.log(kyselytData[0].[0].kysymykset[0].vaihtoehdot[1])
-    console.log(kyselytData[0].[0].kysymykset[0].vaihtoehdot[2])
-    console.log("--------------------------------------------------")
-    */
-
-
-    const inputChanged = (event) => {
-        setKysleyId(event.target.value)
+    const fetchLink = (link) => {
+        return fetch(link).then(response => response.json())
     }
 
     const [tulostaKysely, setTulostaKysely] = useState(false)
+    const [tulostaKaikkiKyselyt, setTulostaKaikkiKyselyt] = useState(false)
 
-    const haeKysely = (event) => {
-
+    const haeKaikkiKyselyt = (event) => {
         event.preventDefault();
-
-        setTulostaKysely(false)
-
-        if (kysleyId !== "") {
-
-            setHaluttuKysley(kyselytData[0][kysleyId])
-
-            setTulostaKysely(true)
-        } else {
-            alert("Syötä ID!")
-        }
+        setTulostaKysely(true);
+        setTulostaKaikkiKyselyt(true);
+        console.log("Kaikki kyselyt:")
+        console.log(heatutKyselyt)
+        console.log("Kaikki kysymykset:")
+        console.log(heatutKysymykset)
     }
 
     if (tulostaKysely === false) {
         return (
-            <div>
-                <p>Saatavilla olevien kyselyiden määrä: {kyselytData[0].length}</p>
-                <p>Valitse kysely syöttämällä kyselyn ID/numero</p>
-                <form onSubmit={haeKysely}>
-                    Kyselyn ID: <input type="number" name="kyselyId" defaultValue={kysleyId} onChange={inputChanged} min="0" max={kyselytData[0].length - 1} /><br></br>
-                    <input type="submit" value="Submit" />
-                </form>
+            <div className="form-container">
+                <h1 className="form-titleh1 text-color">Kysely Sovellus</h1>
+                <button onClick={haeKaikkiKyselyt}>Katso kaikki kyselyt</button>
             </div>
         )
-    } else {
+    } else if ((tulostaKysely === true) && (tulostaKaikkiKyselyt === true)) {
         return (
             <div>
-                <button onClick={() => setTulostaKysely(false)}>Valitse toinen kysely</button>
-                <Text kysely={haluttuKysley} />
+                <button onClick={() => setTulostaKysely(false)}>Takaisin</button>
+                <KaikkiKyselyt kyselyt={heatutKyselyt} kaikkiKysymykset={heatutKysymykset}/>
             </div>
         )
     }
